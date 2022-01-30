@@ -1,7 +1,6 @@
-pyKavita_version = [0,0,1,2,"alpha"]
+pyKavita_version = [0,0,1,3,"alpha"]
 pluginName = "pyKavita"+" : "+str(pyKavita_version[0])+"."+str(pyKavita_version[1])+"."+str(pyKavita_version[2])+"."+str(pyKavita_version[3])+"-"+pyKavita_version[4]
 
-import re
 import requests, json
 
 class Kavita:
@@ -83,7 +82,7 @@ class Kavita:
         if not isinstance(id, int):
             raise TypeError("This function requires an INT object in the 'id' position.")
 
-        return self._handle(requests.get(self._url+"Series"+"/"+command+"?seriesID="+str(id),headers=self._header))
+        return self._handle(requests.get(self._url+"Series"+"/"+_command+"?seriesID="+str(id),headers=self._header))
 
     def seriesScan(self, id=0, library=0):
         """
@@ -97,4 +96,4 @@ class Kavita:
         if not isinstance(id, library):
             raise TypeError("This function requires an INT object in the 'library' position.")
 
-        return self._handle(requests.post(self._url+"Series"+"/"+command,json={"libraryID":library,"seriesId":id},headers=self._header))
+        return self._handle(requests.post(self._url+"Series"+"/"+_command,json={"libraryID":library,"seriesId":id},headers=self._header))
