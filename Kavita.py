@@ -1,4 +1,4 @@
-pyKavita_version = [0,0,1,5,"alpha"]
+pyKavita_version = [0,0,1,6,"alpha"]
 pluginName = "pyKavita"+" : "+str(pyKavita_version[0])+"."+str(pyKavita_version[1])+"."+str(pyKavita_version[2])+"."+str(pyKavita_version[3])+"-"+pyKavita_version[4]
 
 import requests, json
@@ -106,4 +106,4 @@ class Kavita:
         if not isinstance(library, int):
             raise TypeError("This function requires an INT object in the 'library' position.")
 
-        return self._handle(requests.post(self._url+"Library"+"/"+_command+"?libraryID="+str(id),headers=self._header))
+        return self._handle(requests.post(self._url+"Library"+"/"+_command+"?libraryID="+str(library),headers=self._header))
