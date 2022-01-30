@@ -9,10 +9,10 @@ In most instances the endpoints exposed via this wrapper are for a single method
 If you want additional endpoints added, or additional methods added, then raise an issue or use a pull request to submit your own code.
 
 Current Available Endpoints:
-/Server/server-info
-/Server/backup-db
-/Server/clear-cache
+* /Server/server-info
+* /Server/backup-db
+* /Server/clear-cache
 
-/Series/*
-/Series/metadata
-/Series/scan
+* /Series/*
+* /Series/metadata
+* /Series/scan
