@@ -17,7 +17,7 @@ class Kavita:
             self.auth = json.loads(requests.post(self._url+"Plugin"+"/"+"authenticate"+"?apiKey="+requests.utils.quote(apiKey)+"&pluginName="+requests.utils.quote(pluginName)).text)
             self._header = {'Authorization': 'Bearer '+self.auth["token"]}
         except:
-            print("Unable to authenticate, please check your apiKey and URL are correct")
+            raise ValueError("Unable to authenticate, please check your apiKey and URL are correct")
 
     def _handle(self, response):
         if response.status_code != 200:
