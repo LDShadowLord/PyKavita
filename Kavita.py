@@ -1,6 +1,5 @@
-pyKavita_version = [0,0,1,1,"alpha"]
+pyKavita_version = [0,0,1,2,"alpha"]
 pluginName = "pyKavita"+" : "+str(pyKavita_version[0])+"."+str(pyKavita_version[1])+"."+str(pyKavita_version[2])+"."+str(pyKavita_version[3])+"-"+pyKavita_version[4]
-url = "https://kavita.tycoonier.tech/api/"
 
 import re
 import requests, json
@@ -99,36 +98,3 @@ class Kavita:
             raise TypeError("This function requires an INT object in the 'library' position.")
 
         return self._handle(requests.post(self._url+"Series"+"/"+command,json={"libraryID":library,"seriesId":id},headers=self._header))
-
-
-
-    def series(self, command, data="", payload={}):
-        if command in self._valid_series_commands or isinstance(command, int):
-            if command == isinstance(command, int):
-                return self._handle(requests.get(self._url+"Series"+"/"+str(command),headers=self._header))
-            elif command == "metadata":
-                return self._handle(requests.get(self._url+"Series"+"/"+command+"?seriesID="+str(data),headers=self._header))
-            elif command == "scan":
-                return self._handle(requests.post(self._url+"Series"+"/"+command,json=payload,headers=self._header))
-        else:
-            print("Not a valid command.")
-
-k = Kavita("https://kavita.tycoonier.tech/api/","88bc19f3-047a-4dfe-acfc-c8dc715fef2d")
-for command in k._valid_server_commands:
-    print("Testing: "+command)
-    print(str(k.server(command)))
-    print("-------")
-
-print("Testing: 1447")
-print(str(k.series(1447)))
-print("-------")
-
-for command in k._valid_series_commands:
-    print("Testing: "+command)
-    if command == "scan":
-        print(str(k.series(command,payload={"libraryID":5,"seriesId":1447})))
-    elif command == "metadata":
-        print(str(k.series(command,data="1447")))
-    else:
-        print(str(k.series(command)))
-    print("-------")
