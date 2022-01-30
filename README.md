@@ -16,3 +16,5 @@ Current Available Endpoints:
 * /Series/*
 * /Series/metadata
 * /Series/scan
+
+* /Library/scan

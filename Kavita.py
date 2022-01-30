@@ -25,7 +25,6 @@ class Kavita:
                 return [False]
             else:
                 return [False, response.text]
-            return [False, response.text]
         else:
             try:
                 response.headers['Content-Type']
@@ -86,7 +85,7 @@ class Kavita:
 
     def seriesScan(self, id=0, library=0):
         """
-        Returns metadata about that series.
+        Forces a scan for that series.
         ID: The numeric ID for that series.
         Library: The numeric ID for the container library.
         """
@@ -97,3 +96,14 @@ class Kavita:
             raise TypeError("This function requires an INT object in the 'library' position.")
 
         return self._handle(requests.post(self._url+"Series"+"/"+_command,json={"libraryID":library,"seriesId":id},headers=self._header))
+
+    def libraryScan(self, library=0):
+        """
+        Forces a scan for that library.
+        Library: The numeric ID for the container library.
+        """
+        _command = "scan"
+        if not isinstance(id, library):
+            raise TypeError("This function requires an INT object in the 'library' position.")
+
+        return self._handle(requests.post(self._url+"Library"+"/"+_command+"?libraryID="+str(id),headers=self._header))
