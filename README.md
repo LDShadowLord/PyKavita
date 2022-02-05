@@ -5,20 +5,8 @@ A basic wrapper API for Kavita (kavitareader.com). Not feature complete, does no
 
 All you need is Requests, your API endpoint accessible (kavita.example.com/api/), and your API key.
 
-In most instances the endpoints exposed via this wrapper are for a single method, either GET or POST.
+In most instances the endpoints exposed via this wrapper are for a single method, either GET or POST. If you want to see what endpoints are currently supported, check [EndPoints.md](EndPoints.md)
 If you want additional endpoints added, or additional methods added, then raise an issue or use a pull request to submit your own code.
-
-### Current Available Endpoints:
-* /Server/server-info
-* /Server/backup-db
-* /Server/clear-cache
-* ---
-* /Series/*
-* /Series/metadata
-* /Series/scan
-* ---
-* /Library/scan
-
 
 ### Example Code
 It's super simple to use this wrapper. Just import it like a normal function.
