@@ -20,6 +20,7 @@ Unlikely to support any of these other than /roles as they're meant for interact
 * /api/Account/reset-api-key - post
 
 #### Admin
+Won't support this. For this to ever not be True, you'd have to be going through first time setup. You wouldn't even be able to reach this as you wouldn't yet have an API key.
 * /api/Admin/exists - get
 
 #### Book
