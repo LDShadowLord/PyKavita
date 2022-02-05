@@ -1,4 +1,4 @@
-pyKavita_version = [0,0,1,6,"alpha"]
+pyKavita_version = [0,0,1,7,"alpha"]
 pluginName = "pyKavita"+" : "+str(pyKavita_version[0])+"."+str(pyKavita_version[1])+"."+str(pyKavita_version[2])+"."+str(pyKavita_version[3])+"-"+pyKavita_version[4]
 
 import requests, json
@@ -37,6 +37,14 @@ class Kavita:
                     return [True]
                 else:
                     return [True, response.text]
+
+    # Commands in /Plugin/ namespace
+    def pluginAuthenticate(self):
+        """
+        No Arguments Required. Returns the Authorization that this module used to authenticate.
+        """
+        _command = "authenticate"
+        return self.auth
 
     # Commands in /Server/ namespace
     def serverServerInfo(self):
@@ -97,6 +105,7 @@ class Kavita:
 
         return self._handle(requests.post(self._url+"Series"+"/"+_command,json={"libraryID":library,"seriesId":id},headers=self._header))
 
+    # Commands in /Library/ namespace
     def libraryScan(self, library=0):
         """
         Forces a scan for that library.
